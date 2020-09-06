@@ -1,0 +1,29 @@
+{
+  "name": "excel-json",
+  "version": "1.0.0",
+  "description": "Converts Shopkeeper NPC excel sheet data to JSON for Pixelmon Reforged",
+  "main": "index.js",
+  "bin": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "build": "pkg . --output excel-json.exe"
+  },
+  "author": "Ben Crow",
+  "license": "ISC",
+  "dependencies": {
+    "path": "^0.12.7",
+    "read-excel-file": "^4.0.7"
+  },
+  "pkg": {
+    "scripts": [
+      "npm start"
+    ],
+    "assets": [
+      "node_modules/**/*",
+      "logging.js"
+    ],
+    "targets": [
+      "node12-win-x86"
+    ]
+  }
+}
