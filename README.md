@@ -6,7 +6,7 @@ Converts xlsx files to JSON config files used for Shopkeeper in Pixelmon Reforge
 
 In order to read the file, you will need to have the information in a specific order:
 
-(https://i.imgur.com/y94EkE1.png)
+![Formatting Logo](https://i.imgur.com/y94EkE1.png)
 
 Make sure that any field that is equal to null is replaced with a 0.
 
