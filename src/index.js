@@ -36,13 +36,13 @@ fs.readdir(`./`, (err, files) => {
         let obj = {
           id: row[0],
           name: row[1],
-          buy: row[4],
         };
         if (row[0] === null || row[1] === null || row[4] === null) {
         } else {
           if (row[2] !== 0) obj.itemData = row[2];
           if (row[3] !== 0) obj.nbtData = row[3];
           if (row[5] !== 0) obj.sell = row[5];
+          if (row[4] !== 0) obj.buy = row[4];
           config.items.push(obj);
         }
       });
