@@ -37,10 +37,17 @@ fs.readdir(`./`, (err, files) => {
           id: row[0],
           name: row[1],
         };
-        if (row[0] === null || row[1] === null || row[4] === null) {
+        if (
+          row[0] === null ||
+          row[1] === null ||
+          row[4] === null ||
+          row[0].toLowerCase() === "id"
+        ) {
         } else {
           if (row[2] !== 0) obj.itemData = row[2];
-          if (row[3] !== 0) obj.nbtData = row[3];
+          if (row[3] !== 0) {
+            obj.nbtData = row[3].replace('"{', "{").replace('}"', "}");
+          }
           if (row[5] !== 0) obj.sell = row[5];
           if (row[4] !== 0) obj.buy = row[4];
           config.items.push(obj);
@@ -48,10 +55,11 @@ fs.readdir(`./`, (err, files) => {
       });
 
       // writing json to file
-      let fileName = excelFiles[0];
-      let extension = path.extname(fileName);
-      let file = path.basename(fileName, extension);
+      const fileName = excelFiles[0];
+      const extension = path.extname(fileName);
+      const file = path.basename(fileName, extension);
       let data = JSON.stringify(config, null, 2);
+      data = data.replace(/\\\\/g, "\uFFFF").replace(/\uFFFF/g, "");
       fs.writeFileSync(`./${file}.json`, data);
     });
   } else {

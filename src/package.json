@@ -1,6 +1,6 @@
 {
   "name": "excel-json",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "description": "Converts Shopkeeper NPC excel sheet data to JSON for Pixelmon Reforged",
   "main": "index.js",
   "bin": "index.js",
